@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+.edit {
+  color: rgb(32, 163, 223);
+  margin-right: 20px ;
+}
+.delet {
+  color: rgb(216, 19, 12);
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.btn {
+  margin-right: 20px;
+}

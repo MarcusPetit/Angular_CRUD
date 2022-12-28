@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "caneta preta",
+      "price": "6"
+    },
+    {
+      "id": 2,
+      "name": "Notebook Mac Pro",
+      "price": "15000"
+    },
+    {
+      "name": "coca",
+      "price": "21200",
+      "id": 4
+    },
+    {
+      "name": "prancha",
+      "price": "2300",
+      "id": 5
+    },
+    {
+      "name": "cafe",
+      "price": "1200",
+      "id": 6
+    },
+    {
+      "name": "cafe",
+      "price": "2",
+      "id": 7
+    },
+    {
+      "name": "Marcus Vinicius d Silva Petit",
+      "price": "12,99",
+      "id": 8
+    }
+  ]
+}
