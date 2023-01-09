@@ -10,9 +10,9 @@ import { MatSnackBar } from '@angular/material/snack-bar'
   providedIn: 'root'
 })
 export class ProductService {
-  
+
   baseUrl: string = "http://localhost:3001/products";
-  
+
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { };
   //mostra uma mensagem de produto cadastrado
@@ -24,7 +24,7 @@ export class ProductService {
     })
   }
   //faz um post de cadastro de produto
-  create(product: Product ): Observable<Product> {
+  create(product: Product): Observable<Product> {
     return this.http.post<Product>(this.baseUrl, product)
   }
   //vai ler os produtos do back 
@@ -32,12 +32,12 @@ export class ProductService {
     return this.http.get<Product[]>(this.baseUrl)
   }
   // procurar pelo produto por id
-  readById(id: string ): Observable<Product> {
+  readById(id: number): Observable<Product> {
     const url = `${this.baseUrl}/${id}`
     return this.http.get<Product>(url)
   }
   // atualizar o produto
-  update(product: Product ): Observable<Product> {
+  update(product: Product): Observable<Product> {
     const url = `${this.baseUrl}/${product.id}`
     return this.http.put<Product>(url, product)
   }
@@ -45,7 +45,7 @@ export class ProductService {
   deleteProduct(id: string): Observable<Product> {
     const url = `${this.baseUrl}/${id}`
 
-    return this.http.delete<Product>(url )
+    return this.http.delete<Product>(url)
   }
 }
 

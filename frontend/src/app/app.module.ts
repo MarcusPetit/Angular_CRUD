@@ -51,6 +51,7 @@ registerLocaleData(localePt);
     ForDirective,
     
     
+    
   ],
   imports: [
     BrowserModule,
@@ -70,12 +71,15 @@ registerLocaleData(localePt);
     MatPaginatorModule,
     MatSortModule,
     
+    
   ],
   providers: [
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR'
+      
     }
+    
   ],
   bootstrap: [AppComponent]
 })

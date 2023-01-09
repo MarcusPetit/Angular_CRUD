@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../product.model';
+import  {Product}  from '../product.model';
 import { ProductService } from '../product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -9,28 +9,23 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './product-reload.component.html',
   styleUrls: ['./product-reload.component.css']
 })
-export class ProductReloadComponent implements OnInit {
+export class ProductReloadComponent implements OnInit{
 
-  product: Product = {
-    name: null,
-    price: null,
+  product: Product | any
+
+  constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute,) { }
     
-  } 
-  
-
-  constructor(private productService: ProductService,
-    private router: Router, private route: ActivatedRoute,) { }
     
-    ngOnInit(): void {
-      const id = this.route.snapshot.paramMap.get("id");
-      product: this.product;
+  ngOnInit(): void {
+    const id = +`${this.route.snapshot.paramMap.get('id')}`;
+    product: this.product;
 
-      this.productService.readById("id").subscribe(product => {
+      this.productService.readById(id).subscribe(product => {
       this.product = product
-
+  
     })
-
   }
+
   updateProduct(): void {
     this.productService.update(this.product).subscribe(()=>{
       this.productService.showMensagem('Operação executada com sucesso')
