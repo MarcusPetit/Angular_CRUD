@@ -1,0 +1,17 @@
+<form>
+  <mat-form-field class="input">
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="login.name" name="username">
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="login.password" name="password" type="password">
+  </mat-form-field>
+
+</form>
+<div>
+  <button mat-raised-button class="btn" (click)="validationForCreate()" >Criar Conta</button>
+  <button mat-raised-button class="btn" routerLink="/" >voltar</button>
+
+</div>

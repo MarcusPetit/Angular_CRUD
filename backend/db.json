@@ -1,14 +1,36 @@
 {
   "products": [
     {
-      "name": "carro",
-      "price": "2000",
-      "id": 1
-    },
-    {
       "name": "cafe",
       "price": "22",
       "id": 2
+    },
+    {
+      "name": "prancha",
+      "price": "9999",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 2,
+      "name": "joao@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "name": "t-mariresende@iabs.org.br",
+      "password": "123456789",
+      "id": 3
+    },
+    {
+      "name": "marcuspetit42@gmail.com",
+      "password": "1234567890",
+      "id": 4
+    },
+    {
+      "name": "marcuspetit42@gmail.com",
+      "password": "1234polkiuse",
+      "id": 5
     }
   ]
 }

@@ -1,0 +1,17 @@
+.btns {
+  margin: 20px 0px 20px 0;
+  display: flex;
+  justify-content: start;
+
+}
+.btn {
+  margin-right: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  width: 30%;
+}

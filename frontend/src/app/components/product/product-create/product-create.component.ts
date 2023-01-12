@@ -1,7 +1,7 @@
-import  {Product } from './../product.model';
 import { ProductService } from './../product.service';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from '../product.model';
 
 
 @Component({
@@ -12,13 +12,14 @@ import { Router } from '@angular/router';
 
 export class ProductCreateComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router,  )  { }
-  
+
   product: Product ={
-    name: ""
+    name: "",
+    price: 0
   }
 
   ngOnInit(): void {
-    
+
   }
   createProduct(): void {
     this.productService.create(this.product).subscribe(() => {

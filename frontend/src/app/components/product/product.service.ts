@@ -1,17 +1,19 @@
-import { Observable } from 'rxjs';
 import { Product } from './product.model';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Query } from '@angular/core';
 
-//snackbar e para ter uma mensagem de cadastrado 
+
+//snackbar e para ter uma mensagem de cadastrado
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { query } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  baseUrl: string = "http://localhost:3001/products";
+  baseUrl: string = "https://unique-trout-11.hasura.app/v1/graphql/";
 
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { };
@@ -27,7 +29,7 @@ export class ProductService {
   create(product: Product): Observable<Product> {
     return this.http.post<Product>(this.baseUrl, product)
   }
-  //vai ler os produtos do back 
+  //vai ler os produtos do back
   read(): Observable<Product[]> {
     return this.http.get<Product[]>(this.baseUrl)
   }
@@ -47,5 +49,9 @@ export class ProductService {
 
     return this.http.delete<Product>(url)
   }
+}
+
+function insert_users(objects: any, arg1: { id: string; name: string; }[]) {
+  throw new Error('Function not implemented.');
 }
 

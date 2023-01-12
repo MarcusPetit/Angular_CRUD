@@ -33,6 +33,8 @@ import { ProductReadComponent } from './components/product/product-read/product-
 import { ProductReloadComponent } from './components/product/product-reload/product-reload.component';
 import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
 import { ForDirective } from './directives/for.directive';
+import { LoginComponent } from './components/login/login/login.component';
+import { CreateloginComponent } from './components/login/createlogin/createlogin.component';
 
 registerLocaleData(localePt);
 
@@ -49,9 +51,9 @@ registerLocaleData(localePt);
     ProductReloadComponent,
     ProductDeleteComponent,
     ForDirective,
-    
-    
-    
+    LoginComponent,
+    CreateloginComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -70,16 +72,20 @@ registerLocaleData(localePt);
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    
-    
+
+
+
+
   ],
   providers: [
+
+
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR'
-      
-    }
-    
+
+    },
+
   ],
   bootstrap: [AppComponent]
 })
