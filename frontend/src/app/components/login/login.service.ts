@@ -13,6 +13,7 @@ export class LoginService {
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar,) { }
 
+  //mensagem de erro ou sucesso
 
   showMensagem(msg: string): void {
     this.snackBar.open(msg, 'X', {
@@ -28,8 +29,14 @@ export class LoginService {
   }
   //logar
 
+
+
   //buscar usuário
-  searchName(name: string): Observable<Login>{
+  search(): Observable<Login>{
+
+    return this.http.get<Login>(this.baseUrl)
+  }
+  searchName(): Observable<Login>{
     const url = `${this.baseUrl}/${name}`
     return this.http.get<Login>(url)
   }

@@ -1,40 +1,44 @@
-import { NgModule , LOCALE_ID} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './components/template/header/header.component';
-import { FooterComponent } from './components/template/footer/footer.component';
-import { NavComponent } from './components/template/nav/nav.component';
-import { HomeComponent } from './views/home/home.component'
-import { ProductCrudComponent } from './views/product-crud/product-crud.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
+import { FooterComponent } from './components/template/footer/footer.component';
+import { HeaderComponent } from './components/template/header/header.component';
+import { NavComponent } from './components/template/nav/nav.component';
+import { HomeComponent } from './views/home/home.component';
+import { ProductCrudComponent } from './views/product-crud/product-crud.component';
 
 //import do material
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatSidenavModule} from '@angular/material/sidenav'
-import {MatListModule} from '@angular/material/list';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { FormsModule } from '@angular/forms'
-import { MatFormFieldModule } from'@angular/material/form-field'
-import { MatInputModule } from'@angular/material/input'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material/table';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 //api
-import {HttpClientModule} from '@angular/common/http';
-import localePt from '@angular/common/locales/pt'
-import { registerLocaleData }from '@angular/common'
+import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import localePt from '@angular/common/locales/pt';
+import { InMemoryCache } from '@apollo/client';
+import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular';
+import { HttpLink } from 'apollo-angular/http';
+import { CreateloginComponent } from './components/login/createlogin/createlogin.component';
+import { LoginComponent } from './components/login/login/login.component';
+import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
 import { ProductReadComponent } from './components/product/product-read/product-read.component';
 import { ProductReloadComponent } from './components/product/product-reload/product-reload.component';
-import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
 import { ForDirective } from './directives/for.directive';
-import { LoginComponent } from './components/login/login/login.component';
-import { CreateloginComponent } from './components/login/createlogin/createlogin.component';
+import { GraphQLModule } from './graphql.module';
 
 registerLocaleData(localePt);
 
@@ -52,7 +56,8 @@ registerLocaleData(localePt);
     ProductDeleteComponent,
     ForDirective,
     LoginComponent,
-    CreateloginComponent,
+    CreateloginComponent
+
 
   ],
   imports: [
@@ -72,6 +77,10 @@ registerLocaleData(localePt);
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    GraphQLModule,
+    ApolloModule,
+
+
 
 
 
@@ -81,12 +90,23 @@ registerLocaleData(localePt);
 
 
     {
-      provide: LOCALE_ID,
-      useValue: 'pt-BR'
-
+      provide: APOLLO_OPTIONS,
+      useFactory(httpLink: HttpLink) {
+        return {
+          cache: new InMemoryCache(),
+          link: httpLink.create({
+            uri: 'https://48p1r2roz4.sse.codesandbox.io'
+          })
+        }
+      },
+      deps: [HttpLink]
     },
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+
+
+  ]
 })
 export class AppModule { }

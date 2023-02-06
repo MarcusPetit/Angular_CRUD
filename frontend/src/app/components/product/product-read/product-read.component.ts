@@ -12,7 +12,7 @@ export class ProductReadComponent implements OnInit {
 
 
   products: Product[] = []
-  displayedColumns = ['id', 'name', 'price', 'action']
+  displayedColumns = ['id', 'name', 'password']
 
   constructor(private productService: ProductService) { }
 
